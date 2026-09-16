@@ -148,3 +148,29 @@ h1.heading-1 span.heading-1\.accent {
     font-style: italic;
     color: var(--Accent);
 }
+
+
+h2.heading-2 span.heading-2\.accent {
+    font-style: italic;
+    color: var(--Accent);
+}
+
+.controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.control {
+    width: 40px;
+    height: 4px;
+    background-color: var(--Border-Light);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.control.active {
+    background-color: var(--Border-Dark);
+}

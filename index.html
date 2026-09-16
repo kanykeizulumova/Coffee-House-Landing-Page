@@ -24,14 +24,14 @@
                 </div>
                 <nav class="nav-menu" id="nav-menu">
                     <ul class="nav-list">
-                        <li><a href="javascript:void(0);" class="nav-link paragraph-l acti">Favorite coffee</a></li>
-                        <li><a href="pets.html" class="nav-link paragraph-l ">About</a></li>
-                        <li><a href="#help" class="nav-link paragraph-l ">Mobile app</a></li>
-                        <li><a href="#footer" class="nav-link paragraph-l ">Contact us</a></li>
+                        <li><a href="#favorite-coffee" class="nav-link paragraph-l acti">Favorite coffee</a></li>
+                        <li><a href="#about" class="nav-link paragraph-l ">About</a></li>
+                        <li><a href="#mobile-app" class="nav-link paragraph-l ">Mobile app</a></li>
+                        <li><a href="#contacts" class="nav-link paragraph-l ">Contact us</a></li>
                     </ul>
                 </nav>
                 <div class="coffee-menu">
-                    <a>
+                    <a href="menu.html">
                         <p>Menu</p>
                         <img class="coffee-cup" src="/assets/coffee-cup.png" alt="coffee-cup-icon" />
                     </a>
@@ -51,8 +51,101 @@
                 </div>
             </div>
         </header>
-        <main></main>
-        <footer></footer>
+        <main>
+            <section class="favorite-coffee" id="favorite-coffee">
+                <div class="favorite-coffee-container">
+                    <h2 class="heading-2">Choose your <span class="heading-2.accent">favorite</span> coffee</h2>
+                    <div class="favorite-slider">
+                        <div class="slider">
+                            <button class="button-icon-dark"><img src="/assets/arrowleft.svg"
+                                    alt="arrow left" /></button>
+                            <div class="row-slider">
+                                <div class="slider-content">
+                                    <img src="/assets/coffee-slider-1.png" alt="coffee cup" />
+                                    <div class="slider-description">
+                                        <h3 class="heading-3">S’mores Frappuccino</h3>
+                                        <p class="medium">This new drink takes an espresso and mixes it with brown sugar
+                                            and cinnamon before being topped with oat milk.</p>
+                                        <p class="heading-3">$5.50</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="button-icon-dark"><img src="/assets/arrowright.svg"
+                                    alt="arrow right" /></button>
+                        </div>
+                        <div class="controls">
+                            <div class="control active"></div>
+                            <div class="control"></div>
+                            <div class="control"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="about" id="about">
+                <div class="about-container">
+                    <h2 class="heading-2">Resource is <span class="heading-2.accent">the perfect and cozy place </span>
+                        where
+                        you can enjoy a variety of hot
+                        beverages, relax,
+                        catch up with friends, or get some work done.</h2>
+                    <div class="about-images">
+                        <div class="column-1">
+                            <img src="/assets/about-1.svg" alt="about image" />
+                            <img src="/assets/about-2.svg" alt="about image" />
+                        </div>
+                        <div class="column-2">
+                            <img src="/assets/about-3.svg" alt="about image" />
+                            <img src="/assets/about-4.svg" alt="about image" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mobile-app" id="mobile-app">
+                <div class="mobile-app-container">
+                    <div class="mobile-app-offer">
+                        <h2 class="heading-2"> <span class="heading-2.accent">Download</span> our apps to start ordering
+                        </h2>
+                        <p class="medium">Download the Resource app today and experience the comfort of ordering your
+                            favorite coffee
+                            from wherever you are</p>
+                        <div class="mobile-app-buttons">
+                            <button class="button-app-store"></button>
+                            <button class="button-google-play"></button>
+                        </div>
+                    </div>
+                    <img src="/assets/mobile-screens.png" alt="mobile-screens" />
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="contacts" id="contacts">
+                <div class="contacts-offer">
+                    <h2 class="heading-2">Sip, Savor, Smile. <span class="heading-2.accent">It’s coffee time!</span>
+                    </h2>
+                    <div class="socials-footer">
+                        <button class="button-icon-light"><img src="/assets/twitter.svg" alt="twitter icon" /></button>
+                        <button class="button-icon-light"> <img src="/assets/instagram.svg"
+                                alt="instagram icon" /></button>
+                        <button class="button-icon-light"><img src="/assets/facebook.svg"
+                                alt="facebook icon" /></button>
+                    </div>
+                </div>
+                <div class="contacts-info">
+                    <h3 class="heading-3">Contact us</h3>
+                    <div class="contacts-info-container">
+                        <a> <img src="/assets/pin-alt.svg" alt="pin-alt" />
+                            <p>8558 Green Rd., LA</p>
+                        </a>
+                        <a> <img src="/assets/phone.svg" alt="phone icon" />
+                            <p>+1 (603) 555-0123</p>
+                        </a>
+                        <a> <img src="/assets/clock.svg" alt="clock icon" />
+                            <p>Mon-Sat: 9:00 AM – 23:00 PM</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 
