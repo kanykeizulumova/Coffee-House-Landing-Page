@@ -1,0 +1,150 @@
+/* Main styles */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+
+:root {
+    --main-font: 'Inter';
+    --Dark: #403F3D;
+    --Light: #E1D4C9;
+    --Accent: #B0907A;
+    --Body: #E1D4C9;
+    --Container: #665F55;
+    --Backdrop: #403F3DCC;
+    --Border-Light: #C1B6AD;
+    --Border-Dark: #665F55;
+}
+
+.heading-1 {
+    font-family: var(--main-font);
+    font-weight: 600;
+    font-style: Semi Bold;
+    font-size: 72px;
+    line-height: 105%;
+    letter-spacing: normal;
+
+}
+
+.heading-1.accent {
+    font-family: var(--main-font);
+    font-weight: 600;
+    font-style: Italic;
+    font-size: 72px;
+    line-height: 105%;
+    letter-spacing: normal;
+
+}
+
+.heading-2 {
+    font-family: var(--main-font);
+    font-weight: 600;
+    font-style: Semi Bold;
+    font-size: 60px;
+    line-height: 1.25;
+    letter-spacing: normal;
+
+}
+
+.heading-2.accent {
+    font-family: var(--main-font);
+    font-weight: 600;
+    font-style: Italic;
+    font-size: 60px;
+    line-height: 1.25;
+    letter-spacing: normal;
+
+}
+
+.heading-3 {
+    font-family: var(--main-font);
+    font-weight: 600;
+    font-style: Semi Bold;
+    font-size: 24px;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-box-trim: none;
+
+}
+
+.medium {
+    font-family: var(--main-font);
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: normal;
+
+}
+
+.caption {
+    font-family: var(--main-font);
+    font-weight: 600;
+    font-style: Semi Bold;
+    font-size: 10px;
+    line-height: 140%;
+    letter-spacing: normal;
+
+}
+
+a,
+button {
+    font-family: var(--main-font);
+    font-weight: 600;
+    font-style: Semi Bold;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: normal;
+
+}
+
+.burger-link {
+    font-family: var(--main-font);
+    font-weight: 600;
+    font-style: Semi Bold;
+    font-size: 32px;
+    line-height: 1.25;
+    letter-spacing: normal;
+
+}
+
+.wrapper {
+    width: 1440px;
+    background-color: var(--Body);
+}
+
+.hero-container {
+    max-width: 1360px;
+    opacity: 1;
+    border-radius: 40px;
+    margin: 0 40px 0 40px;
+    padding: 100px;
+    color: var(--Light);
+    background-image: url('/assets/img-hero.svg');
+    background-size: cover;
+}
+
+.hero-offer {
+    width: 530px;
+    opacity: 1;
+    gap: 40px;
+
+}
+
+h1.heading-1 {
+    font-style: normal;
+    color: var(--Light);
+}
+
+h1.heading-1 span.heading-1\.accent {
+    font-style: italic;
+    color: var(--Accent);
+}
