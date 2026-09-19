@@ -4,11 +4,23 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-    overflow-x: hidden;
     scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: var(--Body);
+    color: var(--Dark);
+    line-height: 1.5;
+    overflow-x: hidden;
 }
 
 
@@ -34,30 +46,10 @@ html {
 
 }
 
-.heading-1.accent {
-    font-family: var(--main-font);
-    font-weight: 600;
-    font-style: Italic;
-    font-size: 72px;
-    line-height: 105%;
-    letter-spacing: normal;
-
-}
-
 .heading-2 {
     font-family: var(--main-font);
     font-weight: 600;
     font-style: Semi Bold;
-    font-size: 60px;
-    line-height: 1.25;
-    letter-spacing: normal;
-
-}
-
-.heading-2.accent {
-    font-family: var(--main-font);
-    font-weight: 600;
-    font-style: Italic;
     font-size: 60px;
     line-height: 1.25;
     letter-spacing: normal;
@@ -95,6 +87,18 @@ html {
 
 }
 
+.heading-1 .accent,
+.heading-1\.accent,
+.heading-2 .accent,
+.heading-2\.accent,
+.hero-offer h1.heading-1 span,
+.hero-offer h1.heading-1 .accent,
+.contacts-offer h2.heading-2 .accent,
+.accent {
+    font-style: italic;
+    color: var(--Accent);
+}
+
 a,
 button {
     font-family: var(--main-font);
@@ -117,7 +121,12 @@ button {
 }
 
 .wrapper {
-    width: 1440px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-color: var(--Body);
 }
 
