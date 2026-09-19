@@ -493,3 +493,109 @@ header {
 .about-img-box:hover img {
     transform: scale(1.05);
 }
+
+.mobile-app {
+    margin-bottom: 100px;
+}
+
+.mobile-app-container {
+    max-width: 1360px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.mobile-app-offer {
+    max-width: 630px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.mobile-app-offer h2.heading-2 {
+    color: var(--Dark);
+}
+
+.mobile-app-offer p.medium {
+    color: var(--Dark);
+}
+
+.mobile-app-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.button-app-store,
+.button-google-play {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: 200px;
+    height: 64px;
+    padding: 12px 20px;
+    border-radius: 100px;
+    border: 1px solid var(--Border-Dark);
+    background-color: transparent;
+    color: var(--Dark);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.button-app-store:hover,
+.button-google-play:hover {
+    background-color: var(--Border-Dark);
+    color: var(--Light);
+    border-color: var(--Border-Dark);
+}
+
+.button-app-store:hover .app-icon,
+.button-google-play:hover .app-icon {
+    filter: invert(90%) sepia(10%) saturate(150%) hue-rotate(350deg);
+}
+
+.app-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+    transition: filter 0.3s ease;
+}
+
+.app-btn-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1;
+    gap: 2px;
+}
+
+.app-btn-text .caption {
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 140%;
+}
+
+.app-btn-text .app-store-title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+.mobile-app-image-wrap {
+    width: 630px;
+    max-width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mobile-app-image-wrap img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
