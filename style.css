@@ -599,3 +599,123 @@ header {
     object-fit: contain;
     display: block;
 }
+
+
+footer {
+    width: 100%;
+    padding: 0 40px 40px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.contacts {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 100px;
+    background-color: var(--Dark);
+    border-radius: 40px;
+    color: var(--Light);
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.contacts-offer {
+    max-width: 530px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.contacts-offer h2.heading-2 {
+    color: var(--Light);
+}
+
+.socials-footer {
+    display: flex;
+    gap: 12px;
+}
+
+.button-icon-light {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid var(--Border-Light);
+    background-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.button-icon-light:hover {
+    background-color: var(--Body);
+    border-color: var(--Body);
+}
+
+.button-icon-light:hover img {
+    filter: brightness(0.2);
+}
+
+.button-icon-light img {
+    transition: filter 0.3s ease;
+}
+
+.contacts-info {
+    max-width: 530px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.contacts-info h3.heading-3 {
+    color: var(--Light);
+}
+
+.contacts-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contacts-info-container a,
+.contacts-info-container .contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--Light);
+    text-decoration: none;
+    font-family: var(--main-font);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 150%;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.contacts-info-container a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--Light);
+    transition: width 0.3s ease;
+}
+
+.contacts-info-container a:hover::after {
+    width: 100%;
+}
+
+.contacts-info-container img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
