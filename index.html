@@ -53,24 +53,28 @@
         <main>
             <section class="favorite-coffee" id="favorite-coffee">
                 <div class="favorite-coffee-container">
-                    <h2 class="heading-2">Choose your <span class="heading-2.accent">favorite</span> coffee</h2>
+                    <h2 class="heading-2">Choose your <span class="heading-2.accent accent">favorite</span> coffee</h2>
                     <div class="favorite-slider">
                         <div class="slider">
-                            <button class="button-icon-dark"><img src="/assets/arrowleft.svg"
-                                    alt="arrow left" /></button>
+                            <button class="button-icon-dark" aria-label="Previous slide">
+                                <img src="assets/arrowleft.svg" alt="arrow left" />
+                            </button>
                             <div class="row-slider">
                                 <div class="slider-content">
-                                    <img src="/assets/coffee-slider-1.png" alt="coffee cup" />
+                                    <div class="slider-image-wrapper">
+                                        <img src="assets/coffee-slider-1.png" alt="S’mores Frappuccino" />
+                                    </div>
                                     <div class="slider-description">
                                         <h3 class="heading-3">S’mores Frappuccino</h3>
                                         <p class="medium">This new drink takes an espresso and mixes it with brown sugar
                                             and cinnamon before being topped with oat milk.</p>
-                                        <p class="heading-3">$5.50</p>
+                                        <p class="heading-3 price">$5.50</p>
                                     </div>
                                 </div>
                             </div>
-                            <button class="button-icon-dark"><img src="/assets/arrowright.svg"
-                                    alt="arrow right" /></button>
+                            <button class="button-icon-dark" aria-label="Next slide">
+                                <img src="assets/arrowright.svg" alt="arrow right" />
+                            </button>
                         </div>
                         <div class="controls">
                             <div class="control active"></div>
