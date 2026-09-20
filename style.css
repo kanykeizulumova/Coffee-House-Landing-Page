@@ -23,6 +23,10 @@ body {
     overflow-x: hidden;
 }
 
+html.lock,
+body.lock {
+    overflow: hidden;
+}
 
 :root {
     --main-font: 'Inter';
@@ -868,11 +872,11 @@ p[class*="heading-2"] {
 }
 
 .burger.active .burger-line:nth-child(1) {
-    transform: translateY(1px) rotate(45deg);
+    transform: translateY(4px) rotate(45deg);
 }
 
 .burger.active .burger-line:nth-child(2) {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 .bar {
@@ -885,6 +889,8 @@ p[class*="heading-2"] {
 @media (max-width: 768px) {
     .burger {
         display: flex;
+        width: 44px;
+        height: 44px;
     }
 
     .nav-menu {
@@ -915,7 +921,7 @@ p[class*="heading-2"] {
     }
 
     .nav-link {
-        font-size: 34px;
+        font-size: 32px;
     }
 
     .coffee-menu a {
@@ -926,5 +932,71 @@ p[class*="heading-2"] {
     .coffee-cup {
         width: 40px;
         height: 40px;
+    }
+
+    .hero-container {
+        padding: 100px 60px;
+    }
+
+    .favorite-coffee {
+        padding: 0 40px;
+    }
+
+    .about {
+        padding: 0 40px;
+    }
+
+    .about-images {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .column-1 .about-img-box:last-child {
+        display: none;
+    }
+
+    .column-2 .about-img-box:first-child {
+        display: none;
+    }
+
+    .mobile-app {
+        padding: 0 40px;
+    }
+
+    .mobile-app-container {
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+    }
+
+    .mobile-app-offer {
+        max-width: 690px;
+    }
+
+    .mobile-app-image-wrap {
+        max-width: 100%;
+    }
+
+    .contacts {
+        padding: 100px 60px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contacts-offer,
+    .contacts-info {
+        max-width: 590px;
+    }
+}
+
+
+@media (max-width: 380px) {
+    .header-container {
+        padding: 20px 16px;
+    }
+
+    .nav-menu {
+        padding: 60px 16px;
     }
 }
