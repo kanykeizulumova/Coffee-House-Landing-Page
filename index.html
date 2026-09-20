@@ -13,6 +13,7 @@
         rel="stylesheet">
     <title>Coffee House</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -20,22 +21,29 @@
         <header>
             <div class="header-container">
                 <a href="index.html" class="header-icon">
-                    <img class="logo-coffee" src="assets/logo.png" alt="Coffee House logo" />
+                    <img class="logo-coffee" src="assets/main-logo.svg" alt="Coffee House logo" />
                 </a>
+
                 <nav class="nav-menu" id="nav-menu">
                     <ul class="nav-list">
-                        <li><a href="#favorite-coffee" class="nav-link paragraph-l active">Favorite coffee</a></li>
-                        <li><a href="#about" class="nav-link paragraph-l">About</a></li>
-                        <li><a href="#mobile-app" class="nav-link paragraph-l">Mobile app</a></li>
-                        <li><a href="#contacts" class="nav-link paragraph-l">Contact us</a></li>
+                        <li><a href="index.html#favorite-coffee" class="nav-link">Favorite coffee</a></li>
+                        <li><a href="index.html#about" class="nav-link">About</a></li>
+                        <li><a href="index.html#mobile-app" class="nav-link">Mobile app</a></li>
+                        <li><a href="#contacts" class="nav-link">Contact us</a></li>
                     </ul>
+
+                    <div class="coffee-menu">
+                        <a href="menu.html" id="nav-menu-link">
+                            <span>Menu</span>
+                            <img class="coffee-cup" src="assets/coffee-cup.svg" alt="coffee-cup-icon" />
+                        </a>
+                    </div>
                 </nav>
-                <div class="coffee-menu">
-                    <a href="menu.html">
-                        <span>Menu</span>
-                        <img class="coffee-cup" src="assets/coffee-cup.png" alt="coffee-cup-icon" />
-                    </a>
-                </div>
+
+                <button class="burger" id="burger" aria-label="Open menu">
+                    <span class="burger-line bar"></span>
+                    <span class="burger-line bar"></span>
+                </button>
             </div>
             <div class="header-hero">
                 <div class="hero-container">
@@ -127,7 +135,7 @@
                             </a>
                             <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer"
                                 class="button-google-play">
-                                <img src="assets/google-play.svg" alt="Google Play icon" class="app-icon" />
+                                <img src="assets/gogle-icon.svg" alt="Google Play icon" class="app-icon" />
                                 <div class="app-btn-text">
                                     <span class="caption">Available on</span>
                                     <span class="app-store-title">Google Play</span>

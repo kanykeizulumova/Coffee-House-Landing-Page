@@ -161,6 +161,7 @@ header {
 .nav-menu {
     display: flex;
     align-items: center;
+    flex-grow: 1;
 }
 
 .nav-list {
@@ -168,6 +169,7 @@ header {
     list-style: none;
     gap: 40px;
     align-items: center;
+    margin: 0 auto;
 }
 
 .nav-link {
@@ -211,6 +213,7 @@ header {
     line-height: 150%;
     position: relative;
     padding-bottom: 4px;
+    cursor: pointer;
 }
 
 .coffee-menu a::after {
@@ -225,8 +228,14 @@ header {
     transition: width 0.3s ease;
 }
 
-.coffee-menu a:hover::after {
+.coffee-menu a:hover::after,
+.coffee-menu a.active::after {
     width: 100%;
+}
+
+.coffee-menu a.active {
+    cursor: default;
+    pointer-events: none;
 }
 
 .coffee-cup {
@@ -837,4 +846,85 @@ p[class*="heading-2"] {
 .preview-description .medium {
     color: var(--Dark);
     flex-grow: 1;
+}
+
+.desktop-only {
+    display: none;
+}
+
+.burger {
+    width: 40px;
+    height: 40px;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    background-color: inherit;
+    border: 1px solid #665F55;
+    border-radius: 100px;
+}
+
+.burger.active .burger-line:nth-child(1) {
+    transform: translateY(1px) rotate(45deg);
+}
+
+.burger.active .burger-line:nth-child(2) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.bar {
+    height: 2px;
+    width: 16px;
+    border: 1.5px solid #403F3D;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .burger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 100px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 100px);
+        background-color: var(--Body);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 60px 40px;
+        gap: 90px;
+        transition: right 0.3s ease-in-out;
+        z-index: 50;
+    }
+
+    .nav-menu.open {
+        right: 0;
+        z-index: 100;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 50px;
+        align-items: center;
+        margin: 0;
+    }
+
+    .nav-link {
+        font-size: 34px;
+    }
+
+    .coffee-menu a {
+        font-size: 32px;
+        gap: 16px;
+    }
+
+    .coffee-cup {
+        width: 40px;
+        height: 40px;
+    }
 }
