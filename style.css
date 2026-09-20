@@ -993,10 +993,49 @@ p[class*="heading-2"] {
 
 @media (max-width: 380px) {
     .header-container {
-        padding: 20px 16px;
+        padding: 16px 16px;
     }
 
     .nav-menu {
         padding: 60px 16px;
+    }
+
+    .header-hero {
+        padding: 16px 16px;
+    }
+
+    .hero-container {
+        padding: 60px 16px;
+    }
+
+    .hero-offer h1.heading-1 {
+        font-size: 42px;
+    }
+
+    .favorite-coffee {
+        padding: 0 16px;
+    }
+
+    .favorite-coffee h2.heading-2 {
+        font-size: 32px;
+    }
+
+    .slider {
+        gap: 40px
+    }
+
+    .button-icon-dark {
+        display: none;
+    }
+
+    .about,
+    .mobile-app {
+        padding: 0 16px;
+    }
+
+    .about h2.heading-2,
+    .mobile-app-offer h2.heading-2 {
+        font-size: 32px;
+
     }
 }
