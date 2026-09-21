@@ -1005,6 +1005,31 @@ p[class*="heading-2"] {
     flex-grow: 1;
 }
 
+.button-refresh {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid var(--Border-Dark);
+    background-color: transparent;
+    color: var(--Dark);
+    cursor: pointer;
+    margin-top: 40px;
+    transition: all 0.3s ease;
+}
+
+.button-refresh:hover {
+    background-color: var(--Container);
+    border-color: var(--Container);
+    color: var(--Light);
+}
+
+.button-refresh svg {
+    stroke: currentColor;
+}
+
 .desktop-only {
     display: none;
 }
@@ -1135,10 +1160,35 @@ p[class*="heading-2"] {
     .contacts-info {
         max-width: 590px;
     }
+
+    .menu-container {
+        padding: 0 40px;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        max-width: 688px;
+        margin: 0 auto;
+    }
+
+    .menu-grid .preview:nth-child(n+5) {
+        display: none;
+    }
+
+    .button-refresh {
+        display: inline-flex;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-offer h1.heading-1 {
+        font-size: 42px;
+    }
 }
 
 
-@media (max-width: 380px) {
+@media (max-width: 450px) {
     .header-container {
         padding: 16px 16px;
     }
@@ -1183,7 +1233,24 @@ p[class*="heading-2"] {
     .about h2.heading-2,
     .mobile-app-offer h2.heading-2 {
         font-size: 32px;
+    }
 
+    .menu-container {
+        padding: 0 16px;
+    }
+
+    .menu-offer h1.heading-2 {
+        font-size: 32px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        max-width: 310px;
+        margin: 0 auto;
+    }
+
+    .button-refresh {
+        display: inline-flex;
     }
 }
 
@@ -1358,6 +1425,17 @@ html.dark .button-secondary {
 }
 
 html.dark .button-secondary:hover {
+    background-color: var(--Container);
+    border-color: var(--Accent);
+    color: #EDE5DD;
+}
+
+html.dark .button-refresh {
+    border-color: var(--Border-Light);
+    color: #EDE5DD;
+}
+
+html.dark .button-refresh:hover {
     background-color: var(--Container);
     border-color: var(--Accent);
     color: #EDE5DD;
