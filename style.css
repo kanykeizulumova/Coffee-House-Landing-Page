@@ -15,19 +15,6 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-    font-family: var(--main-font);
-    background-color: var(--Body);
-    color: var(--Dark);
-    line-height: 1.5;
-    overflow-x: hidden;
-}
-
-html.lock,
-body.lock {
-    overflow: hidden;
-}
-
 :root {
     --main-font: 'Inter';
     --Dark: #403F3D;
@@ -38,6 +25,32 @@ body.lock {
     --Backdrop: #403F3DCC;
     --Border-Light: #C1B6AD;
     --Border-Dark: #665F55;
+}
+
+html.dark {
+    --main-font: 'Inter';
+    --Dark: #EDE5DD;
+    --Light: #25201D;
+    --Accent: #C99F84;
+    --Body: #1C1816;
+    --Container: #3A322C;
+    --Backdrop: rgba(28, 24, 22, 0.85);
+    --Border-Light: #4A4038;
+    --Border-Dark: #78695C;
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: var(--Body);
+    color: var(--Dark);
+    line-height: 1.5;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.lock,
+body.lock {
+    overflow: hidden;
 }
 
 .heading-1 {
@@ -160,6 +173,92 @@ header {
     object-fit: contain;
     display: block;
     cursor: pointer;
+}
+
+.logo-coffee.logo-dark {
+    display: none;
+}
+
+html.dark .logo-coffee.logo-light {
+    display: none;
+}
+
+html.dark .logo-coffee.logo-dark {
+    display: block;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: 20px;
+}
+
+.theme-toggle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--Border-Dark);
+    background-color: transparent;
+    color: var(--Dark);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    outline: none;
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.theme-toggle:hover {
+    background-color: var(--Border-Dark);
+    color: var(--Light);
+    transform: rotate(15deg) scale(1.05);
+}
+
+.theme-toggle .theme-icon {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+.theme-toggle .theme-icon-sun {
+    display: none;
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+}
+
+.theme-toggle .theme-icon-moon {
+    display: block;
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+html.dark .theme-toggle {
+    border-color: var(--Border-Dark);
+    color: var(--Accent);
+}
+
+html.dark .theme-toggle:hover {
+    background-color: rgba(201, 159, 132, 0.15);
+    border-color: var(--Accent);
+    color: #FFF;
+    box-shadow: 0 0 16px rgba(201, 159, 132, 0.3);
+}
+
+html.dark .theme-toggle .theme-icon-moon {
+    display: none;
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+}
+
+html.dark .theme-toggle .theme-icon-sun {
+    display: block;
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
 }
 
 .nav-menu {
@@ -351,6 +450,7 @@ header {
     border-radius: 50%;
     border: 1px solid var(--Border-Dark);
     background-color: transparent;
+    color: var(--Dark);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -362,6 +462,7 @@ header {
 
 .button-icon-dark:hover {
     background-color: var(--Border-Dark);
+    color: var(--Light);
 }
 
 .button-icon-dark:hover img {
@@ -1031,5 +1132,199 @@ p[class*="heading-2"] {
     .mobile-app-offer h2.heading-2 {
         font-size: 32px;
 
+    }
+}
+
+/* ==========================================
+   Dark Theme Refinements & Enhancements
+   ========================================== */
+
+body,
+.wrapper,
+.header-container,
+.hero-container,
+.contacts,
+.preview,
+.button-primary,
+.button-icon-dark,
+.button-icon-light,
+.button-app-store,
+.button-google-play,
+.tab-item,
+.nav-link,
+.coffee-menu a {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+html.dark .hero-container {
+    background-color: #25201D;
+    border: 1px solid rgba(225, 212, 201, 0.12);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+html.dark .hero-offer h1.heading-1,
+html.dark .hero-offer p.medium {
+    color: #EDE5DD;
+}
+
+html.dark .button-primary {
+    background-color: #EDE5DD;
+    color: #1C1816;
+}
+
+html.dark .button-primary:hover {
+    background-color: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(201, 159, 132, 0.3);
+}
+
+html.dark .coffee-cup {
+    filter: invert(90%) sepia(10%) saturate(150%) hue-rotate(350deg);
+}
+
+html.dark .favorite-coffee h2.heading-2,
+html.dark .slider-description h3.heading-3,
+html.dark .slider-description p.medium,
+html.dark .slider-description p.price {
+    color: #EDE5DD;
+}
+
+html.dark .button-icon-dark {
+    border-color: rgba(225, 212, 201, 0.25);
+    color: #EDE5DD;
+}
+
+html.dark .button-icon-dark img {
+    filter: brightness(0) invert(0.92);
+}
+
+html.dark .button-icon-dark:hover {
+    background-color: var(--Container);
+    border-color: var(--Accent);
+}
+
+html.dark .control {
+    background-color: var(--Border-Light);
+}
+
+html.dark .control.active {
+    background-color: var(--Accent);
+}
+
+html.dark .about h2.heading-2 {
+    color: #EDE5DD;
+}
+
+html.dark .about-img-box {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+
+html.dark .mobile-app-offer h2.heading-2,
+html.dark .mobile-app-offer p.medium {
+    color: #EDE5DD;
+}
+
+html.dark .button-app-store,
+html.dark .button-google-play {
+    border-color: var(--Border-Dark);
+    color: #EDE5DD;
+}
+
+html.dark .button-app-store .app-icon,
+html.dark .button-google-play .app-icon {
+    filter: invert(90%) sepia(10%) saturate(150%) hue-rotate(350deg);
+}
+
+html.dark .button-app-store:hover,
+html.dark .button-google-play:hover {
+    background-color: var(--Border-Dark);
+    border-color: var(--Border-Dark);
+    color: #EDE5DD;
+}
+
+
+html.dark .contacts {
+    background-color: #25201D;
+    border: 1px solid rgba(225, 212, 201, 0.12);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+html.dark .contacts-offer h2.heading-2,
+html.dark .contacts-info h3.heading-3,
+html.dark .contacts-info-container a,
+html.dark .contacts-info-container .contact-item {
+    color: #EDE5DD;
+}
+
+html.dark .contacts-info-container a::after {
+    background-color: #EDE5DD;
+}
+
+html.dark .button-icon-light {
+    border-color: var(--Border-Dark);
+}
+
+html.dark .button-icon-light:hover {
+    background-color: var(--Container);
+    border-color: var(--Accent);
+}
+
+html.dark .button-icon-light:hover img {
+    filter: brightness(1.2);
+}
+
+html.dark .menu-offer p:first-child,
+html.dark .menu-offer .heading-2,
+html.dark p[class*="heading-2"] {
+    color: #EDE5DD;
+}
+
+html.dark .tab-item {
+    border-color: var(--Border-Light);
+    color: #EDE5DD;
+}
+
+html.dark .tab-item:hover,
+html.dark .tab-item.active {
+    background-color: var(--Container);
+    border-color: var(--Accent);
+    color: #EDE5DD;
+}
+
+html.dark .tab-item img {
+    background-color: #2E2723;
+}
+
+html.dark .preview {
+    border-color: var(--Border-Light);
+    background-color: #231E1B;
+}
+
+html.dark .preview:hover {
+    border-color: var(--Border-Dark);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+html.dark .preview-description .heading-3 {
+    color: #EDE5DD;
+}
+
+html.dark .preview-description .medium {
+    color: #C7BDB4;
+}
+
+/* Burger & Mobile Drawer */
+html.dark .burger {
+    border-color: var(--Border-Dark);
+}
+
+html.dark .bar {
+    border-color: var(--Dark);
+}
+
+@media (max-width: 768px) {
+    html.dark .nav-menu {
+        background-color: #1C1816;
+        border-bottom: 1px solid var(--Border-Light);
     }
 }
