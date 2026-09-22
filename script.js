@@ -45,26 +45,43 @@ toggleButtons.forEach(btn => {
     });
 });
 
-const sliderRow = document.querySelector('.row-slider');
+const inner = document.querySelector('.row-slider');
 const prevBtn = document.querySelector('.left');
 const nextBtn = document.querySelector('.right');
-const images = sliderRow.querySelectorAll('img');
+const items = inner.querySelectorAll('.slider-content');
+
 
 let currentIndex = 0;
-const totalImages = images.length;
+const maxIndex = items.length - 3;
 
 function updateCarousel() {
-    const offset = -currentIndex * 100;
-    sliderRow.style.transform = `translateX(${offset}%)`;
+    if (items.length === 0) return;
+
+    const itemWidth = items[0].getBoundingClientRect().width;
+
+    const gap = 40;
+
+    const offset = currentIndex * (itemWidth + gap);
+
+    inner.style.transform = `translateX(-${offset}px)`;
 }
 
-
 nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % totalImages;
+    if (currentIndex < maxIndex) {
+        currentIndex++;
+    } else {
+        currentIndex = 0;
+    }
     updateCarousel();
 });
 
 prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = maxIndex;
+    }
     updateCarousel();
 });
+
+window.addEventListener('resize', updateCarousel);
