@@ -48,40 +48,40 @@ toggleButtons.forEach(btn => {
 const inner = document.querySelector('.row-slider');
 const prevBtn = document.querySelector('.left');
 const nextBtn = document.querySelector('.right');
-const items = inner.querySelectorAll('.slider-content');
+const controls = document.querySelectorAll('.controls .control');
 
+if (inner && prevBtn && nextBtn) {
+    const items = inner.querySelectorAll('.slider-content');
+    let currentIndex = 0;
+    const maxIndex = items.length - 1;
 
-let currentIndex = 0;
-const maxIndex = items.length - 3;
+    function updateCarousel() {
+        if (items.length === 0) return;
 
-function updateCarousel() {
-    if (items.length === 0) return;
+        items.forEach(item => {
+            item.style.transform = `translateX(-${currentIndex * 100}%)`;
+        });
 
-    const itemWidth = items[0].getBoundingClientRect().width;
+        controls.forEach((control, index) => {
+            control.classList.toggle('active', index === currentIndex);
+        });
+    }
 
-    const gap = 40;
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
+        updateCarousel();
+    });
 
-    const offset = currentIndex * (itemWidth + gap);
-
-    inner.style.transform = `translateX(-${offset}px)`;
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = maxIndex;
+        }
+        updateCarousel();
+    });
 }
-
-nextBtn.addEventListener('click', () => {
-    if (currentIndex < maxIndex) {
-        currentIndex++;
-    } else {
-        currentIndex = 0;
-    }
-    updateCarousel();
-});
-
-prevBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-    } else {
-        currentIndex = maxIndex;
-    }
-    updateCarousel();
-});
-
-window.addEventListener('resize', updateCarousel);
