@@ -14,6 +14,7 @@
     <title>Coffee House</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="menu.js" defer></script>
 </head>
 
 <body>
@@ -43,10 +44,12 @@
 
                 <div class="header-actions">
                     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Switch theme">
-                        <svg class="theme-icon theme-icon-moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="theme-icon theme-icon-moon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
                         </svg>
-                        <svg class="theme-icon theme-icon-sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="theme-icon theme-icon-sun" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="5"></circle>
                             <line x1="12" y1="1" x2="12" y2="3"></line>
                             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -70,18 +73,18 @@
         <main>
             <section class="menu-container">
                 <div class="menu-offer">
-                    <h1 class="heading-2">Behind each of our cups hides an <span
-                            class="accent">amazing surprise</span></h1>
+                    <h1 class="heading-2">Behind each of our cups hides an <span class="accent">amazing surprise</span>
+                    </h1>
                     <div class="menu-tabs">
-                        <div class="tab-item active">
+                        <div class="tab-item active" data-filter="coffee">
                             <img src="assets/coffe-icon.png" alt="coffee-icon">
                             <p>Coffee</p>
                         </div>
-                        <div class="tab-item">
+                        <div class="tab-item" data-filter="tea">
                             <img src="assets/tea-icon.png" alt="tea-cup-icon">
                             <p>Tea</p>
                         </div>
-                        <div class="tab-item">
+                        <div class="tab-item" data-filter="dessert">
                             <img src="assets/deset-icon.png" alt="dessert-icon">
                             <p>Dessert</p>
                         </div>
@@ -156,9 +159,69 @@
                 </div>
                 <button class="button-refresh" id="load-more" aria-label="Load more cards">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21.5 2V6H17.5M2.5 22V18H6.5M21 11.5C20.5 7 16.5 3.5 12 3.5C7.5 3.5 3.7 6.6 3 11M21 13C20.3 17.4 16.5 20.5 12 20.5C7.5 20.5 3.5 17 3 12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path
+                            d="M21.5 2V6H17.5M2.5 22V18H6.5M21 11.5C20.5 7 16.5 3.5 12 3.5C7.5 3.5 3.7 6.6 3 11M21 13C20.3 17.4 16.5 20.5 12 20.5C7.5 20.5 3.5 17 3 12.5"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </button>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <div class="image-card">
+                            <img id="modal-img" src="assets/coffee-1.svg" alt="Irish coffee">
+                        </div>
+                        <div class="menu-description" id="description">
+                            <div class="menu-title" id="modal-card-container">
+                                <h3 class="heading-3">Irish coffee</h3>
+                                <p class="medium">Fragrant black coffee with Jameson Irish whiskey and whipped milk</p>
+                            </div>
+                            <div class="menu-size" id="modal-card-container">
+                                <p class="medium">Size</p>
+                                <div class="modal-tabs-size">
+                                    <div class="tab-item-modal">
+                                        <span>S</span>
+                                        <span>200 ml</span>
+                                    </div>
+                                    <div class="tab-item-modal">
+                                        <span>M</span>
+                                        <span>300 ml</span>
+                                    </div>
+                                    <div class="tab-item-modal">
+                                        <span>L</span>
+                                        <span>400 ml</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-additives" id="modal-card-container">
+                                <p class="medium">Additives</p>
+                                <div class="modal-tabs-additives">
+                                    <div class="tab-item-modal">
+                                        <span>1</span>
+                                        <span>Sugar</span>
+                                    </div>
+                                    <div class="tab-item-modal">
+                                        <span>2</span>
+                                        <span>Cinnamon</span>
+                                    </div>
+                                    <div class="tab-item-modal">
+                                        <span>3</span>
+                                        <span>Syrup</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-total">
+                                <p class="heading-3">Total:</p>
+                                <p class="heading-3">$7.00</p>
+                            </div>
+                            <div class="modal-alert">
+                                <img src="assets/info-empty.svg" alt="info">
+                                <p class="caption">The cost is not final. Download our mobile app to see the final price
+                                    and place your order. Earn loyalty points and enjoy your favorite coffee with up to
+                                    20% discount.</p>
+                            </div>
+                            <button type="button" class="button-secondary modal-close-btn" id="close">Close</button>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
         <footer>
