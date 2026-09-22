@@ -104,6 +104,39 @@ window.addEventListener('resize', () => {
     updateLoadMoreButton(currentCardsCount);
 });
 
+if (menuGrid) {
+    menuGrid.addEventListener('click', (event) => {
+        const card = event.target.closest('.preview');
+        if (!card) return;
+
+        const cardTitle = card.querySelector('h3')?.textContent.trim();
+        const foundData = catalogData.find(item => item.name === cardTitle);
+
+        if (foundData) {
+            showModal(foundData);
+        }
+    });
+}
+
+
+function closeModal() {
+    if (!modal) return;
+    modal.style.display = 'none';
+    document.body.classList.remove('lock');
+    document.documentElement.classList.remove('lock');
+}
+
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        closeModal();
+    }
+});
+
+window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal && modal.style.display === 'flex') {
+        closeModal();
+    }
+});
 
 
 
