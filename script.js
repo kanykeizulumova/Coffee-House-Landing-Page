@@ -45,3 +45,26 @@ toggleButtons.forEach(btn => {
     });
 });
 
+const sliderRow = document.querySelector('.row-slider');
+const prevBtn = document.querySelector('.left');
+const nextBtn = document.querySelector('.right');
+const images = sliderRow.querySelectorAll('img');
+
+let currentIndex = 0;
+const totalImages = images.length;
+
+function updateCarousel() {
+    const offset = -currentIndex * 100;
+    sliderRow.style.transform = `translateX(${offset}%)`;
+}
+
+
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalImages;
+    updateCarousel();
+});
+
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    updateCarousel();
+});
