@@ -55,4 +55,56 @@ function renderCards(data) {
     updateLoadMoreButton(data.length);
 }
 
+
+function filterCards(category) {
+    currentCategory = category;
+    if (menuGrid) {
+        menuGrid.classList.remove('show-all');
+    }
+
+    const filtered = catalogData.filter(item => item.category === category);
+    renderCards(filtered);
+}
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const filterValue = tab.dataset.filter;
+        filterCards(filterValue);
+    });
+});
+
+function updateLoadMoreButton(totalItems) {
+    if (!loadMoreBtn) return;
+
+    if (totalItems <= 4 || (menuGrid && menuGrid.classList.contains('show-all'))) {
+        loadMoreBtn.style.display = 'none';
+    } else {
+        if (window.innerWidth <= 768) {
+            loadMoreBtn.style.display = 'inline-flex';
+        } else {
+            loadMoreBtn.style.display = 'none';
+        }
+    }
+}
+
+if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', () => {
+        if (menuGrid) {
+            menuGrid.classList.add('show-all');
+        }
+        loadMoreBtn.style.display = 'none';
+    });
+}
+
+window.addEventListener('resize', () => {
+    const currentCardsCount = menuGrid ? menuGrid.querySelectorAll('.preview').length : 0;
+    updateLoadMoreButton(currentCardsCount);
+});
+
+
+
+
 loadData();
