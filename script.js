@@ -46,7 +46,6 @@ toggleButtons.forEach(btn => {
 });
 
 const inner = document.querySelector('.row-slider');
-const slider = document.querySelector('.slider');
 const prevBtn = document.querySelector('.left');
 const nextBtn = document.querySelector('.right');
 const controls = document.querySelectorAll('.controls .control');
@@ -90,20 +89,17 @@ if (inner && prevBtn && nextBtn) {
     let touchEndX = 0;
     const swipeThreshold = 40;
 
-    slider.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
+    inner.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].clientX;
     }, { passive: true });
 
-    slider.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
+    inner.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].clientX;
         handleSwipe();
     }, { passive: true });
 
     function handleSwipe() {
-        const items = inner.querySelectorAll('.slider-content');
         const swipeDistance = touchEndX - touchStartX;
-        let currentIndex = 0;
-        const maxIndex = items.length - 1;
 
         if (swipeDistance < -swipeThreshold) {
             currentIndex = (currentIndex < maxIndex) ? currentIndex + 1 : 0;
