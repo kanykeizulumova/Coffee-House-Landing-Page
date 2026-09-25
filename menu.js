@@ -26,6 +26,7 @@ function renderCards(data) {
         const preview = document.createElement('div');
         preview.classList.add('preview');
         preview.dataset.category = item.category;
+        preview.dataset.name = item.name;
 
         const img = document.createElement('img');
         img.src = `assets/${item.src}`;
@@ -99,7 +100,14 @@ if (loadMoreBtn) {
     });
 }
 
+let prevWindowWidth = window.innerWidth;
 window.addEventListener('resize', () => {
+    if (prevWindowWidth <= 768 && window.innerWidth > 768) {
+        if (menuGrid) {
+            menuGrid.classList.remove('show-all');
+        }
+    }
+    prevWindowWidth = window.innerWidth;
     const currentCardsCount = menuGrid ? menuGrid.querySelectorAll('.preview').length : 0;
     updateLoadMoreButton(currentCardsCount);
 });
@@ -109,8 +117,8 @@ if (menuGrid) {
         const card = event.target.closest('.preview');
         if (!card) return;
 
-        const cardTitle = card.querySelector('h3')?.textContent.trim();
-        const foundData = catalogData.find(item => item.name === cardTitle);
+        const cardName = card.dataset.name || card.querySelector('h3')?.textContent.trim();
+        const foundData = catalogData.find(item => item.name === cardName);
 
         if (foundData) {
             showModal(foundData);
