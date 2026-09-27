@@ -85,6 +85,13 @@ if (inner && prevBtn && nextBtn) {
         updateCarousel();
     });
 
+    controls.forEach((control, index) => {
+        control.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+        });
+    });
+
     let touchStartX = 0;
     let touchEndX = 0;
     const swipeThreshold = 40;
@@ -98,6 +105,20 @@ if (inner && prevBtn && nextBtn) {
         handleSwipe();
     }, { passive: true });
 
+    let isMouseDown = false;
+
+    inner.addEventListener('mousedown', (e) => {
+        isMouseDown = true;
+        touchStartX = e.clientX;
+    });
+
+    window.addEventListener('mouseup', (e) => {
+        if (!isMouseDown) return;
+        isMouseDown = false;
+        touchEndX = e.clientX;
+        handleSwipe();
+    });
+
     function handleSwipe() {
         const swipeDistance = touchEndX - touchStartX;
 
@@ -110,6 +131,5 @@ if (inner && prevBtn && nextBtn) {
             updateCarousel();
         }
     }
-
 }
 
