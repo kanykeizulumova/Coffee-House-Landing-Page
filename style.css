@@ -1255,6 +1255,17 @@ p[class*="heading-2"] {
     .button-refresh {
         display: inline-flex;
     }
+
+    .contacts {
+        padding: 60px 16px;
+        gap: 40px;
+    }
+
+    .contacts-offer {
+        h2 {
+            font-size: 32px;
+        }
+    }
 }
 
 /* ==========================================
@@ -1657,8 +1668,16 @@ html.dark .bar {
 
 @media (max-width: 768px) {
     .modal-content {
-        max-width: 342px;
+        max-width: 688px;
         padding: 16px;
+        gap: 20px;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .modal-content {
+        max-width: 342px;
     }
 
     .modal-content .image-card {
