@@ -1,13 +1,42 @@
 const burger = document.getElementById('burger');
 const navMenu = document.getElementById('nav-menu');
 
+function closeBurger() {
+    if (burger && navMenu) {
+        burger.classList.remove('active');
+        navMenu.classList.remove('open');
+        document.body.classList.remove('lock');
+        document.documentElement.classList.remove('lock');
+    }
+}
+
 if (burger && navMenu) {
     burger.addEventListener('click', () => {
-        burger.classList.toggle('active');
-        navMenu.classList.toggle('open');
-        document.body.classList.toggle('lock');
+        const isOpen = navMenu.classList.toggle('open');
+        burger.classList.toggle('active', isOpen);
+        document.body.classList.toggle('lock', isOpen);
+        document.documentElement.classList.toggle('lock', isOpen);
+    });
+
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            closeBurger();
+        });
     });
 }
+
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeBurger();
+    }
+});
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        closeBurger();
+    }
+});
 
 const menuLink = document.getElementById('nav-menu-link');
 if (window.location.pathname.includes('menu.html') && menuLink) {
@@ -44,4 +73,92 @@ toggleButtons.forEach(btn => {
         localStorage.setItem('theme', nextDark ? 'dark' : 'light');
     });
 });
+
+const inner = document.querySelector('.row-slider');
+const prevBtn = document.querySelector('.left');
+const nextBtn = document.querySelector('.right');
+const controls = document.querySelectorAll('.controls .control');
+
+if (inner && prevBtn && nextBtn) {
+    const items = inner.querySelectorAll('.slider-content');
+    let currentIndex = 0;
+    const maxIndex = items.length - 1;
+
+    function updateCarousel() {
+        if (items.length === 0) return;
+
+        items.forEach(item => {
+            item.style.transform = `translateX(-${currentIndex * 100}%)`;
+        });
+
+        controls.forEach((control, index) => {
+            control.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
+        updateCarousel();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = maxIndex;
+        }
+        updateCarousel();
+    });
+
+    controls.forEach((control, index) => {
+        control.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+        });
+    });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 40;
+
+    inner.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    inner.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        handleSwipe();
+    }, { passive: true });
+
+    let isMouseDown = false;
+
+    inner.addEventListener('mousedown', (e) => {
+        isMouseDown = true;
+        touchStartX = e.clientX;
+    });
+
+    window.addEventListener('mouseup', (e) => {
+        if (!isMouseDown) return;
+        isMouseDown = false;
+        touchEndX = e.clientX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeDistance = touchEndX - touchStartX;
+
+        if (swipeDistance < -swipeThreshold) {
+            currentIndex = (currentIndex < maxIndex) ? currentIndex + 1 : 0;
+            updateCarousel();
+        }
+        else if (swipeDistance > swipeThreshold) {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : maxIndex;
+            updateCarousel();
+        }
+    }
+}
 
